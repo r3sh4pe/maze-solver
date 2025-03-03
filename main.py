@@ -18,6 +18,8 @@ def main():
 
     maze.break_walls_r(0, 0)
 
+    maze.reset_cells_visited()
+
     win.wait_for_close()
 
 
