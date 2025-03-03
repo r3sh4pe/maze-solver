@@ -42,8 +42,10 @@ class Maze:
         x2 = x1 + self.cell_size_x
         y2 = y1 + self.cell_size_y
 
+        # Replace the placeholder with actual cell
         self._cells[i][j] = Cell(x1, y1, x2, y2, self.win)
 
+        # Only draw if we have a window
         if self.win is not None:
             self._cells[i][j].draw()
             self._animate()
@@ -53,6 +55,16 @@ class Maze:
             return
         self.win.redraw()
         time.sleep(0.05)
+
+    def _break_entrance_and_exit(self):
+        self._cells[0][0].has_top_wall = False
+
+        self._cells[self.num_cols - 1][self.num_rows - 1].has_bottom_wall = False
+
+        if self.win is not None:
+            self._cells[0][0].draw()
+            self._cells[self.num_cols - 1][self.num_rows - 1].draw()
+            self._animate()
 
     @property
     def cells(self):

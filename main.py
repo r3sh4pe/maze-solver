@@ -14,6 +14,8 @@ def main():
 
     maze = Maze(x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win)
 
+    maze._break_entrance_and_exit()
+
     maze.cells[1][0].has_bottom_wall = False
 
     maze.cells[1][1].has_top_wall = False
