@@ -20,6 +20,8 @@ def main():
 
     maze.reset_cells_visited()
 
+    maze.solve()
+
     win.wait_for_close()
 
 
